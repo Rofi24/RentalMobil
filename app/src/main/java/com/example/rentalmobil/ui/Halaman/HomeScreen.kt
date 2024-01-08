@@ -153,39 +153,12 @@ fun DataMobil(
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
-                Icon(
-                    imageVector = Icons.Default.Phone,
-                    contentDescription = null,
-                )
+
                 Text(
                     text = mobil.model,
                     style = MaterialTheme.typography.titleMedium
                 )
             }
-            Text(
-                text = mobil.tahunProduksi,
-                style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(Modifier.weight(1f)
-            )
-            Text(
-                text = mobil.warna,
-                style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(Modifier.weight(1f)
-            )
-            Text(
-                text = mobil.platNomor,
-                style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(Modifier.weight(1f)
-            )
-            Text(
-                text = mobil.status,
-                style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(Modifier.weight(1f)
-            )
         }
     }
 }

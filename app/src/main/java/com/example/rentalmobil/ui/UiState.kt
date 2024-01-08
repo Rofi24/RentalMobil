@@ -3,7 +3,7 @@ package com.example.rentalmobil.ui
 import com.example.rentalmobil.model.Mobil
 
 data class AddUIState(
-    val addEvent: AddEvent = AddEvent(id = String(), merk = String.toString(), model = String(), tahunProduksi = String(), warna = String(), platNomor = String(), status = String())
+    val addEvent: AddEvent = AddEvent()
 )
 
 data class AddEvent(
@@ -27,7 +27,7 @@ fun AddEvent.toMobil() = Mobil(
 )
 
 data class DetailUIState(
-    val addEvent: AddEvent = AddEvent(id = String(), merk = String.toString(), model = String(), tahunProduksi = String(), warna = String(), platNomor = String(), status = String())
+    val addEvent: AddEvent = AddEvent()
 )
 
 fun Mobil.toDetailMobil(): AddEvent =
