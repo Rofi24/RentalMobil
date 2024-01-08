@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.add.EntryBody
-import com.example.rentalmobil.ui.theme.PenyediaViewModel
-import com.example.rentalmobil.ui.theme.RentalTopAppBar
+import com.example.rentalmobil.ui.PenyediaViewModel
+import com.example.rentalmobil.ui.RentalTopAppBar
 import kotlinx.coroutines.launch
 
 object EditDestination : DestinasiNavigasi {

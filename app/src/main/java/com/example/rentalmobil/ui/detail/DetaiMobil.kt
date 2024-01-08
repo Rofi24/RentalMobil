@@ -35,8 +35,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rentalmobil.model.Mobil
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.DetailUIState
-import com.example.rentalmobil.ui.theme.PenyediaViewModel
-import com.example.rentalmobil.ui.theme.RentalTopAppBar
+import com.example.rentalmobil.ui.PenyediaViewModel
+import com.example.rentalmobil.ui.RentalTopAppBar
 import com.example.rentalmobil.ui.toMobil
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package com.example.rentalmobil.ui.theme
+package com.example.rentalmobil.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding

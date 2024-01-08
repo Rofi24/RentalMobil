@@ -24,8 +24,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.AddEvent
 import com.example.rentalmobil.ui.AddUIState
-import com.example.rentalmobil.ui.theme.PenyediaViewModel
-import com.example.rentalmobil.ui.theme.RentalTopAppBar
+import com.example.rentalmobil.ui.PenyediaViewModel
+import com.example.rentalmobil.ui.RentalTopAppBar
 import kotlinx.coroutines.launch
 
 object DestinasiEntry : DestinasiNavigasi {
