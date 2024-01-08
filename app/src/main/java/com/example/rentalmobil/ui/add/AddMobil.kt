@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -16,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rentalmobil.navigation.DestinasiNavigasi
@@ -103,6 +106,60 @@ fun FormInput(
     onValueChange: (AddEvent) -> Unit = {},
     enabled: Boolean = true
 ) {
-
+    Column(
+    modifier = modifier,
+    verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        OutlinedTextField(
+            value = addEvent.merk,
+            onValueChange = { onValueChange(addEvent.copy(merk = it)) },
+            label = { Text("Merk") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEvent.model,
+            onValueChange = { onValueChange(addEvent.copy(model = it)) },
+            label = { Text("Model") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEvent.tahunProduksi,
+            onValueChange = { onValueChange(addEvent.copy(tahunProduksi = it)) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            label = { Text(text = "Tahun Produksi") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEvent.warna,
+            onValueChange = { onValueChange(addEvent.copy(warna = it)) },
+            label = { Text("Warna") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEvent.platNomor,
+            onValueChange = { onValueChange(addEvent.copy(platNomor = it)) },
+            label = { Text("Plat Nomor") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEvent.status,
+            onValueChange = { onValueChange(addEvent.copy(status = it)) },
+            label = { Text("Status") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+    }
 }
+
 
