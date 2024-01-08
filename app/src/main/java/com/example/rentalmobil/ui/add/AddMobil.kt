@@ -76,5 +76,33 @@ fun EntryBody(
     onSaveClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        modifier = modifier.padding(12.dp)
+    ) {
+        FormInput(
+            addEvent = addUIState.addEvent,
+            onValueChange = onSiswaValueChange,
+            modifier = Modifier.fillMaxWidth()
+        )
+        Button(
+            onClick = onSaveClick,
+            shape = MaterialTheme.shapes.small,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Submit")
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FormInput(
+    addEvent: AddEvent,
+    modifier: Modifier = Modifier,
+    onValueChange: (AddEvent) -> Unit = {},
+    enabled: Boolean = true
+) {
+
 }
 
