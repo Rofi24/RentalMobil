@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">RentalMobil</string>
+    <string name="entry_mobil">Tambah Mobil</string>
+    <string name="deskripsi_no_item">Tidak ada data Siswa. Tap + untuk menambah data</string>
+    <string name="nama">Nama *</string>
+    <string name="alamat">Alamat *</string>
+    <string name="telpon">Telpon *</string>
+    <string name="nama1">Nama Penyewa:</string>
+    <string name="alamat1">Alamat Penyewa :</string>
+    <string name="telpon1">Telpon Penyewa :</string>
+    <string name="required_field">* required fields</string>
+    <string name="btn_submit">Submit</string>
+    <string name="detail_mobil">Detail Mobil</string>
+    <string name="edit_mobil">Edit Mobil</string>
+    <string name="back">Back</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="delete">Hapus</string>
+    <string name="update">Edit</string>
 </resources>
