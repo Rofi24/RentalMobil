@@ -57,7 +57,7 @@ fun AddMobil(
 
         EntryBody(
             addUIState = addViewModel.addUIState,
-            onSiswaValueChange = addViewModel::updateAddUIState,
+            onMobilValueChange = addViewModel::updateAddUIState,
             onSaveClick = {
                 coroutineScope.launch {
                     addViewModel.addMobil()
@@ -75,7 +75,7 @@ fun AddMobil(
 @Composable
 fun EntryBody(
     addUIState: AddUIState,
-    onSiswaValueChange: (AddEvent) -> Unit,
+    onMobilValueChange: (AddEvent) -> Unit,
     onSaveClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -85,7 +85,7 @@ fun EntryBody(
     ) {
         FormInput(
             addEvent = addUIState.addEvent,
-            onValueChange = onSiswaValueChange,
+            onValueChange = onMobilValueChange,
             modifier = Modifier.fillMaxWidth()
         )
         Button(
