@@ -23,7 +23,7 @@ interface MobilRepository {
 class MobilRepositoryImpl(private val firestore: FirebaseFirestore) : MobilRepository {
     override fun getAll(): Flow<List<Mobil>> = flow {
         val snapshot = firestore.collection("Mobil")
-            .orderBy("nama", Query.Direction.ASCENDING)
+            .orderBy("merk", Query.Direction.ASCENDING)
             .get()
             .await()
         val mobil = snapshot.toObjects(Mobil::class.java)

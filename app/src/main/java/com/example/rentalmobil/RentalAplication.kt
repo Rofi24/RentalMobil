@@ -1,4 +1,4 @@
-package com.example.rentalmobil.ui
+package com.example.rentalmobil
 
 import android.app.Application
 import com.example.rentalmobil.data.AppContainer
