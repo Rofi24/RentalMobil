@@ -15,6 +15,7 @@ import com.example.rentalmobil.ui.add.DestinasiEntry
 import com.example.rentalmobil.ui.detail.DetailDestination
 import com.example.rentalmobil.ui.detail.DetailMobil
 import com.example.rentalmobil.ui.edit.EditDestination
+import com.example.rentalmobil.ui.edit.EditScreen
 
 @Composable
 fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
@@ -56,6 +57,21 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                         navController.navigate("${EditDestination.route}/$mobilId")
                         println("mobilId: $mobilId")
                     }
+                )
+            }
+        }
+        composable(
+            route = EditDestination.routeWithArgs,
+            arguments = listOf(navArgument(EditDestination.mobilId) {
+                type = NavType.StringType
+                }
+            )
+        ) { backStackEntry ->
+            val mobilId = backStackEntry.arguments?.getString(EditDestination.mobilId)
+            mobilId?.let {
+                EditScreen(
+                    navigateBack = { navController.popBackStack() },
+                    onNavigateUp = { navController.navigateUp() }
                 )
             }
         }
