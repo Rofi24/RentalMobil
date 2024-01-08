@@ -7,13 +7,13 @@ data class AddUIState(
 )
 
 data class AddEvent(
-    val id: String,
-    val merk: String,
-    val model: String,
-    val tahunProduksi: String,
-    val warna: String,
-    val platNomor: String,
-    val status: String
+    val id: String = "",
+    val merk: String = "",
+    val model: String = "",
+    val tahunProduksi: String = "",
+    val warna: String = "",
+    val platNomor: String = "",
+    val status: String = ""
 )
 
 fun AddEvent.toMobil() = Mobil(
