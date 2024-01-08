@@ -7,3 +7,5 @@ object DestinasiEntry : DestinasiNavigasi {
     override val titleRes = "Entry Mobil"
 }
 
+
+
