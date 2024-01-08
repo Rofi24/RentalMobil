@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "448035218502",
+    "project_id": "rentalmobil-uas-pam",
+    "storage_bucket": "rentalmobil-uas-pam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448035218502:android:f03ad3db21f725d7ab1647",
+        "android_client_info": {
+          "package_name": "com.example.rentalmobil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnS9mXcF61Lz7tDj1W5X43pCP7Bp-SlA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
