@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.rentalmobil.data.MobilRepository
 import com.example.rentalmobil.ui.AddEvent
 import com.example.rentalmobil.ui.AddUIState
+import com.example.rentalmobil.ui.toMobil
 import com.example.rentalmobil.ui.toUIStateMobil
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
@@ -32,8 +33,11 @@ class EditViewModel(
                     .toUIStateMobil()
         }
     }
-
     fun updateUIState(addEvent: AddEvent) {
         rentalUiState = rentalUiState.copy(addEvent = addEvent)
+    }
+    suspend fun updateMobil() {
+        repository.update(rentalUiState.addEvent.toMobil())
+
     }
 }
