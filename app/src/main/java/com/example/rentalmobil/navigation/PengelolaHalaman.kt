@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.rentalmobil.ui.Halaman.DestinasiHome
 import com.example.rentalmobil.ui.Halaman.HomeScreen
+import com.example.rentalmobil.ui.add.AddMobil
 import com.example.rentalmobil.ui.add.DestinasiEntry
 import com.example.rentalmobil.ui.detail.DetailDestination
 
@@ -27,7 +28,14 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 onDetailClick = { itemId ->
                     navController.navigate("${DetailDestination.route}/$itemId")
                     println("itemId: $itemId")
-                })
+                }
+            )
+        }
+        composable(DestinasiEntry.route) {
+            AddMobil(navigateBack = {
+                navController.popBackStack()
+            })
+
         }
     }
 }
