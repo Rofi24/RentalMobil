@@ -6,13 +6,13 @@ enum class StatusMobil {
     DALAM_PERBAIKAN
 }
 data class Mobil(
-    val id: String,
-    val merk: String,
-    val model: String,
-    val tahunProduksi: String,
-    val warna: String,
-    val platNomor: String,
-    val status: String
+    val id: String = "",
+    val merk: String = "" ,
+    val model: String = "",
+    val tahunProduksi: String = "",
+    val warna: String = "",
+    val platNomor: String = "",
+    val status: String = ""
 ){
     constructor(): this("","","","","","","")
 }
