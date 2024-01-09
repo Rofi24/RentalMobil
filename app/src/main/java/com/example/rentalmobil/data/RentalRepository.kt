@@ -69,3 +69,42 @@ interface PenyewaRepository {
     suspend fun delete(penyewa: Penyewa)
     fun getPenyewaById(penyewaId: String): Flow<Penyewa>
 }
+
+class PenyewaRepositoryImpl(private val firestore: FirebaseFirestore) : PenyewaRepository {
+    override fun getAll(): Flow<List<Penyewa>> = flow {
+        val snapshot = firestore.collection("Penyewa")
+            .orderBy("nama", Query.Direction.ASCENDING)
+            .get()
+            .await()
+        val penyewa = snapshot.toObjects(Penyewa::class.java)
+        emit(penyewa)
+    }.flowOn(Dispatchers.IO)
+
+    override suspend fun save(penyewa: Penyewa): String {
+        return try {
+            val documentReference = firestore.collection("Penyewa").add(penyewa).await()
+            firestore.collection("Penyewa").document(documentReference.id)
+                .set(penyewa.copy(id = documentReference.id))
+            "Berhasil + ${documentReference.id}"
+        } catch (e: Exception) {
+            Log.w(ContentValues.TAG, "Error adding document", e)
+            "Gagal $e"
+        }
+    }
+
+    override suspend fun update(penyewa: Penyewa) {
+        firestore.collection("Penyewa").document(penyewa.id).set(penyewa).await()
+    }
+
+    override suspend fun delete(penyewa: Penyewa) {
+        firestore.collection("Penyewa").document(penyewa.id).delete().await()
+    }
+
+    override fun getPenyewaById(penyewaId: String): Flow<Penyewa> {
+        return flow {
+            val snapshot = firestore.collection("Penyewa").document(penyewaId).get().await()
+            val penyewa = snapshot.toObject(Penyewa::class.java)
+            emit(penyewa!!)
+        }.flowOn(Dispatchers.IO)
+    }
+}
