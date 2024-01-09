@@ -19,13 +19,13 @@ sealed class MobilUIState {
 
 }
 
-class HomeViewModel(private val rentalRepository: MobilRepository) : ViewModel() {
+class HomeViewModel(private val mobilRepository: MobilRepository) : ViewModel() {
 
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
 
-    val homeUIState: StateFlow<HomeUIState> = rentalRepository.getAll()
+    val homeUIState: StateFlow<HomeUIState> = mobilRepository.getAll()
         .filterNotNull()
         .map {
             HomeUIState (listMobil = it.toList(), it.size ) }
