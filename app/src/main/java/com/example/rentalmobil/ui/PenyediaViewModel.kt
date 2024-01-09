@@ -7,6 +7,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.rentalmobil.ui.Halaman.HomeViewModel
 import com.example.rentalmobil.RentalAplication
+import com.example.rentalmobil.ui.Halaman.PenyewaViewModel
 import com.example.rentalmobil.ui.add.AddViewModel
 import com.example.rentalmobil.ui.detail.DetailViewModel
 import com.example.rentalmobil.ui.edit.EditViewModel
@@ -18,24 +19,27 @@ object PenyediaViewModel {
     val Factory = viewModelFactory {
 
         initializer {
-            AddViewModel(aplikasiRental().container.rentalRepository)
+            AddViewModel(aplikasiRental().container.mobilRepository)
         }
 
         initializer {
-            HomeViewModel(aplikasiRental().container.rentalRepository)
+            HomeViewModel(aplikasiRental().container.mobilRepository)
         }
 
         initializer {
             DetailViewModel(
-                createSavedStateHandle(), aplikasiRental().container.rentalRepository
+                createSavedStateHandle(), aplikasiRental().container.mobilRepository
             )
         }
 
         initializer {
             EditViewModel(
                 createSavedStateHandle(),
-                aplikasiRental().container.rentalRepository
+                aplikasiRental().container.mobilRepository
             )
+        }
+        initializer {
+            PenyewaViewModel(aplikasiRental().container.penyewaRepository)
         }
     }
 }
