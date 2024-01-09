@@ -9,7 +9,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.rentalmobil.ui.Halaman.DestinasiHome
+import com.example.rentalmobil.ui.Halaman.DestinasiScreen
 import com.example.rentalmobil.ui.Halaman.HomeScreen
+import com.example.rentalmobil.ui.Halaman.ScreenPenyewa
 import com.example.rentalmobil.ui.add.AddMobil
 import com.example.rentalmobil.ui.add.DestinasiEntry
 import com.example.rentalmobil.ui.detail.DetailDestination
@@ -27,9 +29,9 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         composable(
             DestinasiHome.route
         ) {
-            HomeScreen(navigateToItemEntry = {
-                navController.navigate(DestinasiEntry.route)
-            },
+            HomeScreen(
+                navigateToItemEntryMobil = { navController.navigate(DestinasiEntry.route) },
+                navigateToScreenPenyewa = {navController.navigate(DestinasiScreen.route)},
                 onDetailClick = { itemId ->
                     navController.navigate("${DetailDestination.route}/$itemId")
                     println("itemId: $itemId")

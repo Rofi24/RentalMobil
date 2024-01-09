@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Card
@@ -45,7 +46,8 @@ object DestinasiHome : DestinasiNavigasi{
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    navigateToItemEntry: () -> Unit,
+    navigateToScreenPenyewa: () -> Unit,
+    navigateToItemEntryMobil: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -62,16 +64,33 @@ fun HomeScreen(
             )
         },
         floatingActionButton = {
+            Column (
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.End,
+                verticalArrangement = Arrangement.Bottom
+            ) {
+                FloatingActionButton(
+                    onClick = navigateToScreenPenyewa,
+                    shape = MaterialTheme.shapes.medium,
+                    ) {
+                    Icon(
+                        imageVector = Icons.Default.AccountBox,
+                        contentDescription = ""
+                    )
+                }
+                Spacer(modifier = Modifier.padding(8.dp))
+            }
             FloatingActionButton(
-                onClick = navigateToItemEntry,
+                onClick = navigateToItemEntryMobil,
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(18.dp)
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
                     contentDescription = ""
                 )
             }
+            Spacer(modifier = Modifier.padding(8.dp))
         },
     ) { innerPadding ->
         val uiStateRental by viewModel.homeUIState.collectAsState()

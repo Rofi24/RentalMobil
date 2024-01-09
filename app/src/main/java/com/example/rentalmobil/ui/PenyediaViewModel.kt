@@ -31,7 +31,6 @@ object PenyediaViewModel {
                 createSavedStateHandle(), aplikasiRental().container.mobilRepository
             )
         }
-
         initializer {
             EditViewModel(
                 createSavedStateHandle(),
