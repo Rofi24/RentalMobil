@@ -12,10 +12,10 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
-sealed class RentalUIState {
-    data class Success(val mobil: Flow<List<Mobil>>) : RentalUIState()
-    object Error : RentalUIState()
-    object Loading : RentalUIState()
+sealed class MobilUIState {
+    data class Success(val mobil: Flow<List<Mobil>>) : MobilUIState()
+    object Error : MobilUIState()
+    object Loading : MobilUIState()
 
 }
 
