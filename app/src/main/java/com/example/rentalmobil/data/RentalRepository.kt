@@ -4,6 +4,7 @@ package com.example.rentalmobil.data
 import android.content.ContentValues
 import android.util.Log
 import com.example.rentalmobil.model.Mobil
+import com.example.rentalmobil.model.Penyewa
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.coroutines.Dispatchers
@@ -59,5 +60,12 @@ class MobilRepositoryImpl(private val firestore: FirebaseFirestore) : MobilRepos
             emit(mobil!!)
         }.flowOn(Dispatchers.IO)
     }
+}
 
+interface PenyewaRepository {
+    fun getAll(): Flow<List<Penyewa>>
+    suspend fun save(penyewa: Penyewa): String
+    suspend fun update(penyewa: Penyewa)
+    suspend fun delete(penyewa: Penyewa)
+    fun getPenyewaById(penyewaId: String): Flow<Penyewa>
 }
