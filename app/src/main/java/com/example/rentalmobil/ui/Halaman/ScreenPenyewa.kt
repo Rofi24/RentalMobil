@@ -3,13 +3,18 @@ package com.example.rentalmobil.ui.Halaman
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -117,4 +122,48 @@ fun ListPenyewa(
     modifier: Modifier = Modifier,
     onItemClick: (Penyewa) -> Unit
 ) {
+    LazyColumn(
+        modifier = modifier
+    ) {
+        this.items(itemPenyewa, key = { it.id }) { penyewa ->
+            DataPenyewa(
+                penyewa = penyewa,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onItemClick(penyewa) }
+            )
+            Spacer(modifier = Modifier.padding(8.dp))
+        }
+    }
+}
+
+@Composable
+fun DataPenyewa(
+    penyewa: Penyewa,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier,
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = penyewa.nama,
+                    style = MaterialTheme.typography.titleLarge,
+                )
+                Spacer(Modifier.weight(1f))
+
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = ""
+                )
+            }
+        }
+    }
 }
