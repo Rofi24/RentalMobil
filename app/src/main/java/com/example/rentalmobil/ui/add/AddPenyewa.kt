@@ -1,7 +1,16 @@
 package com.example.rentalmobil.ui.add
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.AddEventPenyewa
 
@@ -10,10 +19,50 @@ object DestinasiEntryPenyewa : DestinasiNavigasi {
     override val titleRes = "Entry Penyewa"
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormInputPenyewa(
     addEventPenyewa: AddEventPenyewa,
     modifier: Modifier = Modifier,
     onValueChange: (AddEventPenyewa) -> Unit = {},
     enabled: Boolean = true
-) {}
+) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        OutlinedTextField(
+            value = addEventPenyewa.nama,
+            onValueChange = { onValueChange(addEventPenyewa.copy(nama = it)) },
+            label = { Text("Nama") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEventPenyewa.alamat,
+            onValueChange = { onValueChange(addEventPenyewa.copy(alamat = it)) },
+            label = { Text("Alamat") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEventPenyewa.nomorTelepon,
+            onValueChange = { onValueChange(addEventPenyewa.copy(nomorTelepon = it)) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            label = { Text(text = "Nomor Telepon") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEventPenyewa.email,
+            onValueChange = { onValueChange(addEventPenyewa.copy(email = it)) },
+            label = { Text("E-mail") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+    }
+}
