@@ -5,14 +5,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.rentalmobil.data.PenyewaRepository
+import com.example.rentalmobil.ui.AddEventPenyewa
 import com.example.rentalmobil.ui.AddPenyewaUIState
+import com.example.rentalmobil.ui.toPenyewa
+import com.example.rentalmobil.ui.toUIStatePenyewa
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 
 class EditPenyewaViewModel(
     savedStateHandle: SavedStateHandle,
     private val repository: PenyewaRepository
-) : ViewModel() {
-    var penyewaUiState by mutableStateOf(AddPenyewaUIState())
-        private set
-}
+) : ViewModel() {}
