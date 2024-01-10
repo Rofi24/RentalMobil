@@ -12,6 +12,7 @@ import com.example.rentalmobil.ui.add.AddPenyewaViewModel
 import com.example.rentalmobil.ui.add.AddViewModel
 import com.example.rentalmobil.ui.detail.DetailPenyewaViewModel
 import com.example.rentalmobil.ui.detail.DetailViewModel
+import com.example.rentalmobil.ui.edit.EditPenyewaViewModel
 import com.example.rentalmobil.ui.edit.EditViewModel
 
 fun CreationExtras.aplikasiRental(): RentalAplication =
@@ -48,6 +49,12 @@ object PenyediaViewModel {
         initializer {
             DetailPenyewaViewModel(
                 createSavedStateHandle(), aplikasiRental().container.penyewaRepository
+            )
+        }
+        initializer {
+            EditPenyewaViewModel(
+                createSavedStateHandle(),
+                aplikasiRental().container.penyewaRepository
             )
         }
     }
