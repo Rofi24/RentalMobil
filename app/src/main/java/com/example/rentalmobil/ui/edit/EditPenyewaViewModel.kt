@@ -19,4 +19,19 @@ import kotlinx.coroutines.launch
 class EditPenyewaViewModel(
     savedStateHandle: SavedStateHandle,
     private val repository: PenyewaRepository
-) : ViewModel() {}
+) : ViewModel() {
+    var penyewaUiState by mutableStateOf(AddPenyewaUIState())
+        private set
+
+    private val penyewaId: String = checkNotNull(savedStateHandle[EditPenyewaDestination.penyewaId])
+
+    init {
+        viewModelScope.launch {
+            penyewaUiState =
+                repository.getPenyewaById(penyewaId)
+                    .filterNotNull()
+                    .first()
+                    .toUIStatePenyewa()
+        }
+    }
+}
