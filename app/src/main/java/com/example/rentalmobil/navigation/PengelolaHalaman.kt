@@ -21,6 +21,7 @@ import com.example.rentalmobil.ui.detail.DetailDestinationPenyewa
 import com.example.rentalmobil.ui.detail.DetailMobil
 import com.example.rentalmobil.ui.detail.DetailPenyewa
 import com.example.rentalmobil.ui.edit.EditDestination
+import com.example.rentalmobil.ui.edit.EditPenyewaDestination
 import com.example.rentalmobil.ui.edit.EditScreen
 
 @Composable
@@ -30,7 +31,6 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         startDestination = DestinasiHome.route,
         modifier = Modifier
     ){
-
         composable(
             DestinasiScreen.route
         ){
@@ -56,6 +56,10 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             penyewaId?.let {
                 DetailPenyewa(
                     navigateBack = { navController.popBackStack() },
+                    navigateToEditPenyewaItem = {
+                        navController.navigate("${EditPenyewaDestination.route}/$penyewaId")
+                        println("penyewaId: $penyewaId")
+                    }
                 )
             }
         }
