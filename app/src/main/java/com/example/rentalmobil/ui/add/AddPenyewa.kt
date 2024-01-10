@@ -14,15 +14,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.AddEventPenyewa
 import com.example.rentalmobil.ui.AddPenyewaUIState
+import com.example.rentalmobil.ui.PenyediaViewModel
 
 object DestinasiEntryPenyewa : DestinasiNavigasi {
     override val route = "item_entry_penyewa"
     override val titleRes = "Entry Penyewa"
 }
 
+@Composable
+fun AddPenyewa(
+    navigateBack: () -> Unit,
+    modifier: Modifier = Modifier,
+    addPenyewaViewModel: AddPenyewaViewModel = viewModel(factory = PenyediaViewModel.Factory )
+) {}
 @Composable
 fun EntryBodyPenyewa(
     addPenyewaUIState: AddPenyewaUIState,
