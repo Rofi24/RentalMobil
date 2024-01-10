@@ -66,31 +66,32 @@ fun HomeScreen(
         floatingActionButton = {
             Column (
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxSize(),
                 horizontalAlignment = Alignment.End,
                 verticalArrangement = Arrangement.Bottom
             ) {
                 FloatingActionButton(
                     onClick = navigateToScreenPenyewa,
                     shape = MaterialTheme.shapes.medium,
-                    ) {
+                ) {
                     Icon(
                         imageVector = Icons.Default.AccountBox,
                         contentDescription = ""
                     )
                 }
                 Spacer(modifier = Modifier.padding(8.dp))
+
+                FloatingActionButton(
+                    onClick = navigateToItemEntryMobil,
+                    shape = MaterialTheme.shapes.medium,
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = ""
+                    )
+                }
+                Spacer(modifier = Modifier.padding(8.dp))
             }
-            FloatingActionButton(
-                onClick = navigateToItemEntryMobil,
-                shape = MaterialTheme.shapes.medium,
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = ""
-                )
-            }
-            Spacer(modifier = Modifier.padding(8.dp))
         },
     ) { innerPadding ->
         val uiStateRental by viewModel.homeUIState.collectAsState()
