@@ -13,7 +13,9 @@ import com.example.rentalmobil.ui.Halaman.DestinasiScreen
 import com.example.rentalmobil.ui.Halaman.HomeScreen
 import com.example.rentalmobil.ui.Halaman.ScreenPenyewa
 import com.example.rentalmobil.ui.add.AddMobil
+import com.example.rentalmobil.ui.add.AddPenyewa
 import com.example.rentalmobil.ui.add.DestinasiEntry
+import com.example.rentalmobil.ui.add.DestinasiEntryPenyewa
 import com.example.rentalmobil.ui.detail.DetailDestination
 import com.example.rentalmobil.ui.detail.DetailMobil
 import com.example.rentalmobil.ui.edit.EditDestination
@@ -30,7 +32,13 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         composable(
             DestinasiScreen.route
         ){
-            ScreenPenyewa()
+            ScreenPenyewa(navigateToItemEntryPenyewa = {navController.navigate(DestinasiEntryPenyewa.route)})
+        }
+        composable(DestinasiEntryPenyewa.route) {
+            AddPenyewa(navigateBack = {
+                navController.popBackStack()
+            })
+
         }
         composable(
             DestinasiHome.route

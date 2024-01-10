@@ -44,6 +44,7 @@ object DestinasiScreen : DestinasiNavigasi {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenPenyewa(
+    navigateToItemEntryPenyewa: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
     viewModel: PenyewaViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -66,7 +67,7 @@ fun ScreenPenyewa(
                 verticalArrangement = Arrangement.Bottom
             ) {
                 FloatingActionButton(
-                    onClick = {},
+                    onClick = navigateToItemEntryPenyewa,
                     shape = MaterialTheme.shapes.medium
                 ) {
                     Icon(
