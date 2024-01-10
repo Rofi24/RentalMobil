@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.rentalmobil.data.PenyewaRepository
 import com.example.rentalmobil.ui.AddEventPenyewa
 import com.example.rentalmobil.ui.AddPenyewaUIState
+import com.example.rentalmobil.ui.toPenyewa
 import com.example.rentalmobil.ui.toUIStatePenyewa
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
@@ -35,5 +36,8 @@ class EditPenyewaViewModel(
     }
     fun updateUIStatePenyewa(addEventPenyewa: AddEventPenyewa) {
         penyewaUiState = penyewaUiState.copy(addEventPenyewa = addEventPenyewa)
+    }
+    suspend fun updatePenyewa() {
+        repository.update(penyewaUiState.addEventPenyewa.toPenyewa())
     }
 }
