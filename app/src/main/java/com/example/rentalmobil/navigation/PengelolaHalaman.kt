@@ -26,6 +26,12 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         startDestination = DestinasiHome.route,
         modifier = Modifier
     ){
+
+        composable(
+            DestinasiScreen.route
+        ){
+            ScreenPenyewa()
+        }
         composable(
             DestinasiHome.route
         ) {
