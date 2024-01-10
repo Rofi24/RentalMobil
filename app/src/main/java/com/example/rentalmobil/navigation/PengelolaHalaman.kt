@@ -17,7 +17,9 @@ import com.example.rentalmobil.ui.add.AddPenyewa
 import com.example.rentalmobil.ui.add.DestinasiEntry
 import com.example.rentalmobil.ui.add.DestinasiEntryPenyewa
 import com.example.rentalmobil.ui.detail.DetailDestination
+import com.example.rentalmobil.ui.detail.DetailDestinationPenyewa
 import com.example.rentalmobil.ui.detail.DetailMobil
+import com.example.rentalmobil.ui.detail.DetailPenyewa
 import com.example.rentalmobil.ui.edit.EditDestination
 import com.example.rentalmobil.ui.edit.EditScreen
 
@@ -32,13 +34,30 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         composable(
             DestinasiScreen.route
         ){
-            ScreenPenyewa(navigateToItemEntryPenyewa = {navController.navigate(DestinasiEntryPenyewa.route)})
+            ScreenPenyewa(navigateToItemEntryPenyewa = {navController.navigate(DestinasiEntryPenyewa.route)},
+            onDetailClick = { itemId ->
+                navController.navigate("${DetailDestinationPenyewa.route}/$itemId")
+                println("itemId: $itemId")
+            })
         }
         composable(DestinasiEntryPenyewa.route) {
             AddPenyewa(navigateBack = {
                 navController.popBackStack()
             })
 
+        }
+        composable(
+            route = DetailDestinationPenyewa.routeWithArgs,
+            arguments = listOf(navArgument(DetailDestinationPenyewa.penyewaId) {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val penyewaId = backStackEntry.arguments?.getString(DetailDestinationPenyewa.penyewaId)
+            penyewaId?.let {
+                DetailPenyewa(
+                    navigateBack = { navController.popBackStack() },
+                )
+            }
         }
         composable(
             DestinasiHome.route
