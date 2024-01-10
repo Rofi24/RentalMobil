@@ -32,4 +32,8 @@ class DetailPenyewaViewModel(
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = DetailUIStatePenyewa()
             )
+    suspend fun deletePenyewa() {
+        repository.delete(penyewaId)
+
+    }
 }

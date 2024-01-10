@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.util.Log
 import com.example.rentalmobil.model.Mobil
 import com.example.rentalmobil.model.Penyewa
+import com.example.rentalmobil.ui.detail.DetailDestinationPenyewa.penyewaId
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.coroutines.Dispatchers
@@ -66,7 +67,7 @@ interface PenyewaRepository {
     fun getAll(): Flow<List<Penyewa>>
     suspend fun save(penyewa: Penyewa): String
     suspend fun update(penyewa: Penyewa)
-    suspend fun delete(penyewa: Penyewa)
+    suspend fun delete(penyewa: String)
     fun getPenyewaById(penyewaId: String): Flow<Penyewa>
 }
 
@@ -96,8 +97,8 @@ class PenyewaRepositoryImpl(private val firestore: FirebaseFirestore) : PenyewaR
         firestore.collection("Penyewa").document(penyewa.id).set(penyewa).await()
     }
 
-    override suspend fun delete(penyewa: Penyewa) {
-        firestore.collection("Penyewa").document(penyewa.id).delete().await()
+    override suspend fun delete(penyewa: String) {
+        firestore.collection("Penyewa").document(penyewaId).delete().await()
     }
 
     override fun getPenyewaById(penyewaId: String): Flow<Penyewa> {
