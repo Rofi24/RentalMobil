@@ -21,6 +21,7 @@ import com.example.rentalmobil.ui.detail.DetailDestinationPenyewa
 import com.example.rentalmobil.ui.detail.DetailMobil
 import com.example.rentalmobil.ui.detail.DetailPenyewa
 import com.example.rentalmobil.ui.edit.EditDestination
+import com.example.rentalmobil.ui.edit.EditPenyewa
 import com.example.rentalmobil.ui.edit.EditPenyewaDestination
 import com.example.rentalmobil.ui.edit.EditScreen
 
@@ -60,6 +61,20 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                         navController.navigate("${EditPenyewaDestination.route}/$penyewaId")
                         println("penyewaId: $penyewaId")
                     }
+                )
+            }
+        }
+        composable(
+            route = EditPenyewaDestination.routeWithArgs,
+            arguments = listOf(navArgument(EditPenyewaDestination.penyewaId) {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val penyewaId = backStackEntry.arguments?.getString(EditPenyewaDestination.penyewaId)
+            penyewaId?.let {
+                EditPenyewa(
+                    navigateBack = { navController.popBackStack() },
+                    onNavigateUp = { navController.navigateUp() }
                 )
             }
         }
