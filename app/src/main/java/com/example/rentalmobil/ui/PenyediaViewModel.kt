@@ -10,6 +10,7 @@ import com.example.rentalmobil.RentalAplication
 import com.example.rentalmobil.ui.Halaman.PenyewaViewModel
 import com.example.rentalmobil.ui.add.AddPenyewaViewModel
 import com.example.rentalmobil.ui.add.AddViewModel
+import com.example.rentalmobil.ui.detail.DetailPenyewaViewModel
 import com.example.rentalmobil.ui.detail.DetailViewModel
 import com.example.rentalmobil.ui.edit.EditViewModel
 
@@ -43,6 +44,11 @@ object PenyediaViewModel {
         }
         initializer {
             AddPenyewaViewModel(aplikasiRental().container.penyewaRepository)
+        }
+        initializer {
+            DetailPenyewaViewModel(
+                createSavedStateHandle(), aplikasiRental().container.penyewaRepository
+            )
         }
     }
 }
