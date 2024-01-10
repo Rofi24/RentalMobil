@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.rentalmobil.model.Penyewa
 import com.example.rentalmobil.navigation.DestinasiNavigasi
+import com.example.rentalmobil.ui.DetailUIStatePenyewa
 
 object DetailDestinationPenyewa : DestinasiNavigasi {
     override val route = "item_details_penyewa"
@@ -25,6 +26,12 @@ object DetailDestinationPenyewa : DestinasiNavigasi {
     const val penyewaId = "itemId_penyewa"
     val routeWithArgs = "$route/{$penyewaId}"
 }
+
+private fun ItemDetailsBodyPenyewa(
+    detailUIStatePenyewa: DetailUIStatePenyewa,
+    onDelete: () -> Unit,
+    modifier: Modifier = Modifier
+) {}
 
 @Composable
 fun ItemDetailsPenyewa(
