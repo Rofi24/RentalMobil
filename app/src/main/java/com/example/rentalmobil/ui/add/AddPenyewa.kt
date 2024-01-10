@@ -4,14 +4,20 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -19,18 +25,52 @@ import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.AddEventPenyewa
 import com.example.rentalmobil.ui.AddPenyewaUIState
 import com.example.rentalmobil.ui.PenyediaViewModel
+import com.example.rentalmobil.ui.RentalTopAppBar
+import kotlinx.coroutines.launch
 
 object DestinasiEntryPenyewa : DestinasiNavigasi {
     override val route = "item_entry_penyewa"
     override val titleRes = "Entry Penyewa"
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddPenyewa(
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     addPenyewaViewModel: AddPenyewaViewModel = viewModel(factory = PenyediaViewModel.Factory )
-) {}
+) {
+    val coroutineScope = rememberCoroutineScope()
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+
+    Scaffold(
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            RentalTopAppBar(
+                title = DestinasiEntryPenyewa.titleRes,
+                canNavigateBack = true,
+                scrollBehavior = scrollBehavior,
+                navigateUp = navigateBack
+            )
+        }
+    ) { innerPadding ->
+
+        EntryBodyPenyewa(
+            addPenyewaUIState = addPenyewaViewModel.addPenyewaUIState,
+            onPenyewaValueChange = addPenyewaViewModel::updateAddPenyewaUIState,
+            onSaveClick = {
+                coroutineScope.launch {
+                    addPenyewaViewModel.addPenyewa()
+                    navigateBack()
+                }
+            },
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+                .fillMaxWidth()
+        )
+    }
+}
 @Composable
 fun EntryBodyPenyewa(
     addPenyewaUIState: AddPenyewaUIState,
