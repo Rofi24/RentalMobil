@@ -13,11 +13,20 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.AddEventPenyewa
+import com.example.rentalmobil.ui.AddPenyewaUIState
 
 object DestinasiEntryPenyewa : DestinasiNavigasi {
     override val route = "item_entry_penyewa"
     override val titleRes = "Entry Penyewa"
 }
+
+@Composable
+fun EntryBodyPenyewa(
+    addPenyewaUIState: AddPenyewaUIState,
+    onPenyewaValueChange: (AddEventPenyewa) -> Unit,
+    onSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
