@@ -8,6 +8,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.rentalmobil.ui.Halaman.HomeViewModel
 import com.example.rentalmobil.RentalAplication
 import com.example.rentalmobil.ui.Halaman.PenyewaViewModel
+import com.example.rentalmobil.ui.add.AddPenyewaViewModel
 import com.example.rentalmobil.ui.add.AddViewModel
 import com.example.rentalmobil.ui.detail.DetailViewModel
 import com.example.rentalmobil.ui.edit.EditViewModel
@@ -39,6 +40,9 @@ object PenyediaViewModel {
         }
         initializer {
             PenyewaViewModel(aplikasiRental().container.penyewaRepository)
+        }
+        initializer {
+            AddPenyewaViewModel(aplikasiRental().container.penyewaRepository)
         }
     }
 }
