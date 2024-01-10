@@ -21,9 +21,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rentalmobil.model.Penyewa
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.DetailUIStatePenyewa
+import com.example.rentalmobil.ui.PenyediaViewModel
 import com.example.rentalmobil.ui.toPenyewa
 
 object DetailDestinationPenyewa : DestinasiNavigasi {
@@ -32,6 +34,13 @@ object DetailDestinationPenyewa : DestinasiNavigasi {
     const val penyewaId = "itemId_penyewa"
     val routeWithArgs = "$route/{$penyewaId}"
 }
+
+@Composable
+fun DetailPenyewa(
+    navigateBack: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: DetailPenyewaViewModel = viewModel(factory = PenyediaViewModel.Factory)
+) {}
 
 @Composable
 private fun ItemDetailsBodyPenyewa(
