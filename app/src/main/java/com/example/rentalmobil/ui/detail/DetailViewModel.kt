@@ -32,10 +32,8 @@ class DetailViewModel(
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = DetailUIState()
             )
-
     suspend fun deleteMobil() {
         repository.delete(mobilId)
-
     }
 }
 

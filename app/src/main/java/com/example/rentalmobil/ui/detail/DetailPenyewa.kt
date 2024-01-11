@@ -41,9 +41,9 @@ import com.example.rentalmobil.ui.toPenyewa
 import kotlinx.coroutines.launch
 
 object DetailDestinationPenyewa : DestinasiNavigasi {
-    override val route = "item_details_penyewa"
+    override val route = "item_details_Penyewa"
     override val titleRes = "Detail Penyewa"
-    const val penyewaId = "itemId_penyewa"
+    const val penyewaId = "itemIdPenyewa"
     val routeWithArgs = "$route/{$penyewaId}"
 }
 
@@ -81,7 +81,7 @@ fun DetailPenyewa(
         ) { innerPadding ->
         ItemDetailsBodyPenyewa(
             detailUIStatePenyewa = uiState.value,
-            onDelete = {
+            onDeletePenyewa = {
                 coroutineScope.launch {
                     viewModel.deletePenyewa()
                     navigateBack()
@@ -97,7 +97,7 @@ fun DetailPenyewa(
 @Composable
 private fun ItemDetailsBodyPenyewa(
     detailUIStatePenyewa: DetailUIStatePenyewa,
-    onDelete: () -> Unit,
+    onDeletePenyewa: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -108,6 +108,7 @@ private fun ItemDetailsBodyPenyewa(
         ItemDetailsPenyewa(
             penyewa  = detailUIStatePenyewa.addEventPenyewa.toPenyewa(), modifier = Modifier.fillMaxWidth()
         )
+
         OutlinedButton(
             onClick = { deleteConfirmationRequired = true },
             shape = MaterialTheme.shapes.small,
@@ -116,16 +117,15 @@ private fun ItemDetailsBodyPenyewa(
             Text("Delete")
         }
         if (deleteConfirmationRequired) {
-            DeleteConfirmationDialog(
+            DeleteConfirmationDialogPenyewa(
                 onDeleteConfirm = {
                     deleteConfirmationRequired = false
-                    onDelete()
+                    onDeletePenyewa()
                 },
                 onDeleteCancel = { deleteConfirmationRequired = false },
                 modifier = Modifier.padding(12.dp)
             )
         }
-
     }
 }
 
@@ -145,49 +145,49 @@ fun ItemDetailsPenyewa(
                 .padding(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            ItemDetailsRow(
+            ItemDetailsRowPenyewa(
                 labelResID ="Nama",
                 itemDetail = penyewa.nama,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
-            ItemDetailsRow(
+            ItemDetailsRowPenyewa(
                 labelResID = "Alamat",
                 itemDetail = penyewa.alamat,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
-            ItemDetailsRow(
+            ItemDetailsRowPenyewa(
                 labelResID ="No KTP",
                 itemDetail = penyewa.noktp,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
-            ItemDetailsRow(
+            ItemDetailsRowPenyewa(
                 labelResID ="No Tlp",
                 itemDetail = penyewa.nomorTelepon,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
-            ItemDetailsRow(
+            ItemDetailsRowPenyewa(
                 labelResID ="Merk Mobil",
                 itemDetail = penyewa.merkmobil,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
-            ItemDetailsRow(
+            ItemDetailsRowPenyewa(
                 labelResID ="Tanggal Pinjam",
                 itemDetail = penyewa.tanggalpinjam,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
-            ItemDetailsRow(
+            ItemDetailsRowPenyewa(
                 labelResID ="Tanggal Kembali",
                 itemDetail = penyewa.tanggalkembali,
                 modifier = Modifier.padding(
@@ -199,7 +199,7 @@ fun ItemDetailsPenyewa(
 }
 
 @Composable
-private fun ItemDetailsRow(
+private fun ItemDetailsRowPenyewa(
     labelResID: String, itemDetail: String, modifier: Modifier = Modifier
 ) {
     Row(modifier = modifier) {
@@ -210,12 +210,12 @@ private fun ItemDetailsRow(
 }
 
 @Composable
-private fun DeleteConfirmationDialog(
+private fun DeleteConfirmationDialogPenyewa(
     onDeleteConfirm: () -> Unit, onDeleteCancel: () -> Unit, modifier: Modifier = Modifier
 ) {
     AlertDialog(onDismissRequest = { /* Do nothing */ },
-        title = { Text("Apakah anda yakin ingin menghapus data penyewa ini dari list?") },
-        text = { Text("Hapus") },
+        title = { Text("Apakah anda yakin ingin menghapus data ini dari list?") },
+        text = { Text("Delete") },
         modifier = modifier,
         dismissButton = {
             TextButton(onClick = onDeleteCancel) {

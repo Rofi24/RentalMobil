@@ -1,10 +1,6 @@
 package com.example.rentalmobil.model
 
-enum class StatusMobil {
-    TERSEDIA,
-    DISEWA,
-    DALAM_PERBAIKAN
-}
+
 data class Mobil(
     val id: String = "",
     val merk: String = "" ,

@@ -162,11 +162,6 @@ fun DataPenyewa(
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
-
-                Icon(
-                    imageVector = Icons.Default.Delete,
-                    contentDescription = ""
-                )
             }
         }
     }
