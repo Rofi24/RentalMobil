@@ -62,16 +62,22 @@ data class AddEventPenyewa(
     val id: String = "",
     val nama: String = "",
     val alamat: String = "",
+    val noktp: String = "",
     val nomorTelepon: String = "",
-    val email: String = ""
+    val merkmobil: String = "",
+    val tanggalpinjam: String = "",
+    val tanggalkembali: String = ""
 )
 
 fun AddEventPenyewa.toPenyewa() = Penyewa(
     id = id ,
     nama = nama,
     alamat = alamat,
+    noktp = noktp,
     nomorTelepon = nomorTelepon,
-    email = email
+    merkmobil = merkmobil,
+    tanggalpinjam = tanggalpinjam,
+    tanggalkembali = tanggalkembali
 )
 
 data class DetailUIStatePenyewa(
@@ -83,8 +89,12 @@ fun Penyewa.toDetailPenyewa(): AddEventPenyewa =
         id = id ,
         nama = nama,
         alamat = alamat,
+        noktp = noktp,
         nomorTelepon = nomorTelepon,
-        email = email
+        merkmobil = merkmobil,
+        tanggalpinjam = tanggalpinjam,
+        tanggalkembali = tanggalkembali
+
     )
 
 fun Penyewa.toUIStatePenyewa(): AddPenyewaUIState = AddPenyewaUIState(

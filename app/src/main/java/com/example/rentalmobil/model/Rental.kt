@@ -21,8 +21,11 @@ data class Penyewa(
     val id: String,
     val nama: String,
     val alamat: String,
+    val noktp: String,
     val nomorTelepon: String,
-    val email: String
+    val merkmobil: String,
+    val tanggalpinjam: String,
+    val tanggalkembali: String
 ){
-    constructor(): this ("","","","","")
+    constructor(): this ("","","","","","","","")
 }

@@ -126,6 +126,15 @@ fun FormInputPenyewa(
             singleLine = true
         )
         OutlinedTextField(
+            value = addEventPenyewa.noktp,
+            onValueChange = { onValueChange(addEventPenyewa.copy(noktp = it)) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            label = { Text(text = "No KTP") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
             value = addEventPenyewa.nomorTelepon,
             onValueChange = { onValueChange(addEventPenyewa.copy(nomorTelepon = it)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
@@ -135,9 +144,25 @@ fun FormInputPenyewa(
             singleLine = true
         )
         OutlinedTextField(
-            value = addEventPenyewa.email,
-            onValueChange = { onValueChange(addEventPenyewa.copy(email = it)) },
-            label = { Text("E-mail") },
+            value = addEventPenyewa.merkmobil,
+            onValueChange = { onValueChange(addEventPenyewa.copy(merkmobil = it)) },
+            label = { Text("Merk Mobil") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEventPenyewa.tanggalpinjam,
+            onValueChange = { onValueChange(addEventPenyewa.copy(tanggalpinjam = it)) },
+            label = { Text("Tanggal Pinjam") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = addEventPenyewa.tanggalkembali,
+            onValueChange = { onValueChange(addEventPenyewa.copy(tanggalkembali = it)) },
+            label = { Text("Tanggal Kembali") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
             singleLine = true

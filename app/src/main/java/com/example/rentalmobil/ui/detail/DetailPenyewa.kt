@@ -160,15 +160,36 @@ fun ItemDetailsPenyewa(
                 )
             )
             ItemDetailsRow(
-                labelResID ="Nomor Telepon",
+                labelResID ="No KTP",
+                itemDetail = penyewa.noktp,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
+            ItemDetailsRow(
+                labelResID ="No Tlp",
                 itemDetail = penyewa.nomorTelepon,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
             ItemDetailsRow(
-                labelResID ="E-Mail",
-                itemDetail = penyewa.email,
+                labelResID ="Merk Mobil",
+                itemDetail = penyewa.merkmobil,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
+            ItemDetailsRow(
+                labelResID ="Tanggal Pinjam",
+                itemDetail = penyewa.tanggalpinjam,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
+            ItemDetailsRow(
+                labelResID ="Tanggal Kembali",
+                itemDetail = penyewa.tanggalkembali,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
