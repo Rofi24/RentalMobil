@@ -15,6 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -126,7 +127,10 @@ fun FormInputPenyewa(
             label = { Text("Nama") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEventPenyewa.alamat,
@@ -134,7 +138,10 @@ fun FormInputPenyewa(
             label = { Text("Alamat") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEventPenyewa.noktp,
@@ -143,7 +150,10 @@ fun FormInputPenyewa(
             label = { Text(text = "No KTP") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEventPenyewa.nomorTelepon,
@@ -152,7 +162,10 @@ fun FormInputPenyewa(
             label = { Text(text = "Nomor Telepon") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEventPenyewa.merkmobil,
@@ -160,7 +173,10 @@ fun FormInputPenyewa(
             label = { Text("Merk Mobil") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEventPenyewa.tanggalpinjam,
@@ -168,7 +184,10 @@ fun FormInputPenyewa(
             label = { Text("Tanggal Pinjam") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEventPenyewa.tanggalkembali,
@@ -176,7 +195,10 @@ fun FormInputPenyewa(
             label = { Text("Tanggal Kembali") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
     }
 }

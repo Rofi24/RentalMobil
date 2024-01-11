@@ -59,7 +59,7 @@ fun ScreenPenyewa(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             RentalTopAppBar(
-                title = "Penyewa",
+                title = "Data Penyewa",
                 canNavigateBack = true,
                 navigateUp = navigateBack,
                 scrollBehavior = scrollBehavior
