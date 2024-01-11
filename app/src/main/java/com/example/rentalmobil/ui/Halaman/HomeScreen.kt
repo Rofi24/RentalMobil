@@ -187,14 +187,24 @@ fun DataMobil(
                     text = mobil.merk,
                     style = MaterialTheme.typography.titleLarge,
                 )
+                Spacer(Modifier.weight(1f))
+
+                Text(text = mobil.platNomor,
+                    style = MaterialTheme.typography.titleMedium,
+                    )
             }
             Row (
                 modifier = Modifier.fillMaxWidth()
             ){
                 Text(
                     text = mobil.status,
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.titleMedium,
                 )
+                Spacer(Modifier.weight(1f))
+
+                Text(text = mobil.warna,
+                    style = MaterialTheme.typography.titleMedium
+                    )
             }
         }
     }
