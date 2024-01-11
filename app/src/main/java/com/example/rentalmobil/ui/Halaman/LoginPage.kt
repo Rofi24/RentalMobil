@@ -22,6 +22,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -105,6 +106,9 @@ fun LoginPage(
                         )
                     }
                 },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    textColor = Color.White
+                ),
                 shape = RoundedCornerShape(20.dp),
                 modifier = Modifier.padding(vertical = 5.dp)
             )
@@ -118,6 +122,9 @@ fun LoginPage(
                         Icon(imageVector = Icons.Filled.Lock, contentDescription = "Pass Icon")
                     }
                 },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    textColor = Color.White
+                ),
                 shape = RoundedCornerShape(20.dp),
                 modifier = Modifier.padding( vertical = 5.dp)
             )
@@ -134,7 +141,6 @@ fun LoginPage(
                                 }
                             }
                         ) },
-                modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(
                     Color.DarkGray
