@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -173,6 +174,14 @@ fun DataPenyewa(
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
+                Icon(
+                    imageVector = Icons.Default.Phone,
+                    contentDescription = null,
+                )
+                Text(
+                    text = penyewa.nomorTelepon,
+                    style = MaterialTheme.typography.titleMedium
+                )
             }
         }
     }
