@@ -97,7 +97,7 @@ class PenyewaRepositoryImpl(private val firestore: FirebaseFirestore) : PenyewaR
         firestore.collection("Penyewa").document(penyewa.id).set(penyewa).await()
     }
 
-    override suspend fun delete(penyewa: String) {
+    override suspend fun delete(penyewaId: String) {
         firestore.collection("Penyewa").document(penyewaId).delete().await()
     }
 
