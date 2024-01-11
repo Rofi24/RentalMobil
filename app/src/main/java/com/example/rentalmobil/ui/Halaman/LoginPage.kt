@@ -33,8 +33,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.rentalmobil.R
 import com.example.rentalmobil.navigation.DestinasiNavigasi
@@ -76,6 +78,21 @@ fun LoginPage(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
+            Text(
+                text = "Welcome to JogjaRentCar!",
+                color = Color.White,
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+
+            Text(
+                text = "Please login to your account.",
+                color = Color.White,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Normal,
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
             OutlinedTextField(value = emailText,
                 onValueChange = { emailText = it },
                 label = { Text(text = "Email")},
