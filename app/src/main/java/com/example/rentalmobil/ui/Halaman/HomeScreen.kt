@@ -187,12 +187,6 @@ fun DataMobil(
                     text = mobil.merk,
                     style = MaterialTheme.typography.titleLarge,
                 )
-                Spacer(Modifier.weight(1f))
-                IconButton(onClick = {onDeleteClick(mobil.id)}) {
-                    Icon(
-                        imageVector = Icons.Default.Delete,
-                        contentDescription = null)
-                }
             }
             Row (
                 modifier = Modifier.fillMaxWidth()
