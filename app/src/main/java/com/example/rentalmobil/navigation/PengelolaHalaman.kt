@@ -9,8 +9,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.rentalmobil.ui.Halaman.DestinasiHome
+import com.example.rentalmobil.ui.Halaman.DestinasiLogin
 import com.example.rentalmobil.ui.Halaman.DestinasiScreen
 import com.example.rentalmobil.ui.Halaman.HomeScreen
+import com.example.rentalmobil.ui.Halaman.LoginPage
 import com.example.rentalmobil.ui.Halaman.ScreenPenyewa
 import com.example.rentalmobil.ui.add.AddMobil
 import com.example.rentalmobil.ui.add.AddPenyewa
@@ -29,7 +31,7 @@ import com.example.rentalmobil.ui.edit.EditScreen
 fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
     NavHost(
         navController = navController,
-        startDestination = DestinasiHome.route,
+        startDestination = DestinasiLogin.route,
         modifier = Modifier
     ){
         composable(
@@ -128,6 +130,11 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                     onNavigateUp = { navController.navigateUp() }
                 )
             }
+        }
+        composable(
+            DestinasiLogin.route
+        ) {
+            LoginPage(navController)
         }
     }
 }
