@@ -15,6 +15,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -127,7 +129,10 @@ fun FormInput(
             label = { Text("Merk") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEvent.model,
@@ -135,7 +140,10 @@ fun FormInput(
             label = { Text("Model") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEvent.tahunProduksi,
@@ -144,7 +152,10 @@ fun FormInput(
             label = { Text(text = "Tahun Produksi") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEvent.warna,
@@ -152,7 +163,10 @@ fun FormInput(
             label = { Text("Warna") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEvent.platNomor,
@@ -160,7 +174,10 @@ fun FormInput(
             label = { Text("Plat Nomor") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
         OutlinedTextField(
             value = addEvent.status,
@@ -168,7 +185,10 @@ fun FormInput(
             label = { Text("Status") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
-            singleLine = true
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = MaterialTheme.colorScheme.primary
+            )
         )
     }
 }
