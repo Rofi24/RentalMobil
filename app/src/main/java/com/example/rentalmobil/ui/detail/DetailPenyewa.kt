@@ -1,9 +1,11 @@
 package com.example.rentalmobil.ui.detail
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -29,9 +31,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.rentalmobil.R
 import com.example.rentalmobil.model.Penyewa
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.DetailUIStatePenyewa
@@ -79,6 +84,13 @@ fun DetailPenyewa(
             }
         }, modifier = modifier
         ) { innerPadding ->
+        Image(
+            painter = painterResource(id = R.drawable.bg),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
+        )
         ItemDetailsBodyPenyewa(
             detailUIStatePenyewa = uiState.value,
             onDeletePenyewa = {
@@ -106,7 +118,7 @@ private fun ItemDetailsBodyPenyewa(
     ) {
         var deleteConfirmationRequired by rememberSaveable { mutableStateOf(false) }
         ItemDetailsPenyewa(
-            penyewa  = detailUIStatePenyewa.addEventPenyewa.toPenyewa(), modifier = Modifier.fillMaxWidth()
+            penyewa = detailUIStatePenyewa.addEventPenyewa.toPenyewa(), modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedButton(
@@ -120,7 +132,7 @@ private fun ItemDetailsBodyPenyewa(
             DeleteConfirmationDialogPenyewa(
                 onDeleteConfirm = {
                     deleteConfirmationRequired = false
-                    onDeletePenyewa()
+                    onDeletePenyewa() // Corrected function call
                 },
                 onDeleteCancel = { deleteConfirmationRequired = false },
                 modifier = Modifier.padding(12.dp)

@@ -1,5 +1,7 @@
 package com.example.rentalmobil.ui.edit
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -9,7 +11,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.rentalmobil.R
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.PenyediaViewModel
 import com.example.rentalmobil.ui.RentalTopAppBar
@@ -42,6 +47,13 @@ fun EditPenyewa(
         },
         modifier = modifier
     ) { innerPadding ->
+        Image(
+            painter = painterResource(id = R.drawable.bg),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
+        )
         EntryBodyPenyewa(
             addPenyewaUIState = viewModel.penyewaUiState,
             onPenyewaValueChange = viewModel::updateUIStatePenyewa,

@@ -1,5 +1,6 @@
 package com.example.rentalmobil.ui.Halaman
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,9 +29,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.rentalmobil.R
 import com.example.rentalmobil.model.Penyewa
 import com.example.rentalmobil.navigation.DestinasiNavigasi
 import com.example.rentalmobil.ui.PenyediaViewModel
@@ -81,6 +85,13 @@ fun ScreenPenyewa(
             }
         }
     ) { innerPadding ->
+        Image(
+            painter = painterResource(id = R.drawable.bg),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
+        )
         val uiStatePenyewa by viewModel.penyewaUIState.collectAsState()
         BodyHome(
             itemPenyewa = uiStatePenyewa.listPenyewa,

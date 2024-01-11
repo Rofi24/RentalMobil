@@ -15,6 +15,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import com.example.rentalmobil.navigation.PengelolaHalaman
 
@@ -49,6 +50,7 @@ fun RentalTopAppBar(
     CenterAlignedTopAppBar(title = { Text(title) },
         modifier = modifier,
         scrollBehavior = scrollBehavior,
+        colors = TopAppBarDefaults.mediumTopAppBarColors(Color.Gray),
         navigationIcon = {
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {
