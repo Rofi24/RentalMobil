@@ -48,6 +48,7 @@ object DestinasiHome : DestinasiNavigasi{
 fun HomeScreen(
     navigateToScreenPenyewa: () -> Unit,
     navigateToItemEntryMobil: () -> Unit,
+    navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -59,7 +60,8 @@ fun HomeScreen(
         topBar = {
             RentalTopAppBar(
                 title = "Mobil",
-                canNavigateBack = false,
+                canNavigateBack = true,
+                navigateUp = navigateBack,
                 scrollBehavior = scrollBehavior
             )
         },

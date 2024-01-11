@@ -86,6 +86,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             DestinasiHome.route
         ) {
             HomeScreen(
+                navigateBack = { navController.popBackStack() },
                 navigateToItemEntryMobil = { navController.navigate(DestinasiEntry.route) },
                 navigateToScreenPenyewa = {navController.navigate(DestinasiScreen.route)},
                 onDetailClick = { itemId ->
