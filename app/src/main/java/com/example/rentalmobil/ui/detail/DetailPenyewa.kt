@@ -60,7 +60,7 @@ fun DetailPenyewa(
     Scaffold(
         topBar = {
             RentalTopAppBar(
-                title = DetailDestination.titleRes,
+                title = DetailDestinationPenyewa.titleRes,
                 canNavigateBack = true,
                 navigateUp = navigateBack
             )

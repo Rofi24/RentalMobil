@@ -40,7 +40,7 @@ import com.example.rentalmobil.ui.RentalTopAppBar
 
 object DestinasiHome : DestinasiNavigasi{
     override val route = "home"
-    override val titleRes = "mobil"
+    override val titleRes = "Data Mobil"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -174,6 +174,10 @@ fun DataMobil(
             ) {
                 Text(
                     text = mobil.merk,
+                    style = MaterialTheme.typography.titleLarge,
+                )
+                Text(
+                    text = mobil.status,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))

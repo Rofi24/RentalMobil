@@ -34,6 +34,5 @@ class DetailPenyewaViewModel(
             )
     suspend fun deletePenyewa() {
         repository.delete(penyewaId)
-
     }
 }
