@@ -45,6 +45,7 @@ object DestinasiScreen : DestinasiNavigasi {
 @Composable
 fun ScreenPenyewa(
     navigateToItemEntryPenyewa: () -> Unit,
+    navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
     viewModel: PenyewaViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -55,7 +56,8 @@ fun ScreenPenyewa(
         topBar = {
             RentalTopAppBar(
                 title = "Penyewa",
-                canNavigateBack = false,
+                canNavigateBack = true,
+                navigateUp = navigateBack,
                 scrollBehavior = scrollBehavior
             )
         },
@@ -85,7 +87,8 @@ fun ScreenPenyewa(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-            onPenyewaClick = onDetailClick
+            onPenyewaClick = onDetailClick,
+
         )
     }
 }

@@ -37,8 +37,10 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         composable(
             DestinasiScreen.route
         ){
-            ScreenPenyewa(navigateToItemEntryPenyewa = {navController.navigate(DestinasiEntryPenyewa.route)},
-            onDetailClick = { itemId ->
+            ScreenPenyewa(
+                navigateBack = { navController.popBackStack() },
+                navigateToItemEntryPenyewa = {navController.navigate(DestinasiEntryPenyewa.route)},
+                onDetailClick = { itemId ->
                 navController.navigate("${DetailDestinationPenyewa.route}/$itemId")
                 println("itemId: $itemId")
             })
